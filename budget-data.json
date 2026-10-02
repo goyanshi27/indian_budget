@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "title": "India Union Budget 2026",
+    "currency": "₹ Lakh Crore",
+    "totalBudget": 50.65,
+    "gdpGrowthEstimate": 7.2,
+    "fiscalYear": "2025-26"
+  },
+  "sectors": [
+    { "id": 1, "name": "Defence", "allocation": 6.21, "prevYear": 5.94, "growth": 4.55, "category": "security", "color": "#FF6B6B", "icon": "fa-shield-halved" },
+    { "id": 2, "name": "Infrastructure", "allocation": 5.80, "prevYear": 5.20, "growth": 11.54, "category": "economic", "color": "#4ECDC4", "icon": "fa-road" },
+    { "id": 3, "name": "Education", "allocation": 4.10, "prevYear": 3.85, "growth": 6.49, "category": "social", "color": "#45B7D1", "icon": "fa-graduation-cap" },
+    { "id": 4, "name": "Healthcare", "allocation": 3.75, "prevYear": 3.40, "growth": 10.29, "category": "social", "color": "#96CEB4", "icon": "fa-heart-pulse" },
+    { "id": 5, "name": "Agriculture", "allocation": 3.50, "prevYear": 3.20, "growth": 9.38, "category": "economic", "color": "#FFEAA7", "icon": "fa-wheat-awn" },
+    { "id": 6, "name": "Railways", "allocation": 2.65, "prevYear": 2.40, "growth": 10.42, "category": "infrastructure", "color": "#DDA0DD", "icon": "fa-train" },
+    { "id": 7, "name": "Rural Development", "allocation": 2.45, "prevYear": 2.30, "growth": 6.52, "category": "social", "color": "#98D8C8", "icon": "fa-house-chimney" },
+    { "id": 8, "name": "Digital India / IT", "allocation": 2.20, "prevYear": 1.85, "growth": 18.92, "category": "economic", "color": "#F7DC6F", "icon": "fa-microchip" },
+    { "id": 9, "name": "Renewable Energy", "allocation": 1.95, "prevYear": 1.60, "growth": 21.88, "category": "infrastructure", "color": "#82E0AA", "icon": "fa-solar-panel" },
+    { "id": 10, "name": "Commerce & Industry", "allocation": 1.80, "prevYear": 1.70, "growth": 5.88, "category": "economic", "color": "#F0B27A", "icon": "fa-industry" },
+    { "id": 11, "name": "Science & Space", "allocation": 1.60, "prevYear": 1.40, "growth": 14.29, "category": "economic", "color": "#BB8FCE", "icon": "fa-rocket" },
+    { "id": 12, "name": "Women & Child Welfare", "allocation": 1.40, "prevYear": 1.25, "growth": 12.00, "category": "social", "color": "#F1948A", "icon": "fa-child" },
+    { "id": 13, "name": "Skill Development", "allocation": 1.20, "prevYear": 1.05, "growth": 14.29, "category": "social", "color": "#85C1E9", "icon": "fa-person-chalkboard" },
+    { "id": 14, "name": "Environment & Climate", "allocation": 0.95, "prevYear": 0.80, "growth": 18.75, "category": "infrastructure", "color": "#A9DFBF", "icon": "fa-leaf" },
+    { "id": 15, "name": "Tourism", "allocation": 0.69, "prevYear": 0.62, "growth": 11.29, "category": "economic", "color": "#FAD7A0", "icon": "fa-umbrella-beach" }
+  ],
+  "historicalData": {
+    "years": ["2021-22", "2022-23", "2023-24", "2024-25", "2025-26"],
+    "totalBudget": [34.83, 39.45, 43.10, 47.66, 50.65],
+    "sectors": {
+      "Defence":       [4.78, 5.25, 5.54, 5.94, 6.21],
+      "Infrastructure":[3.50, 4.10, 4.60, 5.20, 5.80],
+      "Education":     [3.10, 3.40, 3.65, 3.85, 4.10],
+      "Healthcare":    [2.60, 2.90, 3.15, 3.40, 3.75],
+      "Agriculture":   [2.50, 2.75, 2.95, 3.20, 3.50],
+      "Railways":      [1.90, 2.10, 2.25, 2.40, 2.65],
+      "Digital India / IT": [1.10, 1.35, 1.60, 1.85, 2.20],
+      "Renewable Energy":   [0.90, 1.10, 1.35, 1.60, 1.95]
+    }
+  },
+  "stateData": [
+    { "state": "Maharashtra", "education": 18500, "healthcare": 12300, "infrastructure": 22000 },
+    { "state": "Uttar Pradesh", "education": 22000, "healthcare": 14500, "infrastructure": 19000 },
+    { "state": "Tamil Nadu", "education": 15000, "healthcare": 11000, "infrastructure": 17500 },
+    { "state": "Karnataka", "education": 13500, "healthcare": 9800, "infrastructure": 16000 },
+    { "state": "Gujarat", "education": 12000, "healthcare": 8500, "infrastructure": 18000 },
+    { "state": "Rajasthan", "education": 14000, "healthcare": 9200, "infrastructure": 13500 },
+    { "state": "West Bengal", "education": 13000, "healthcare": 8800, "infrastructure": 12000 },
+    { "state": "Madhya Pradesh", "education": 11500, "healthcare": 7600, "infrastructure": 11000 },
+    { "state": "Bihar", "education": 10000, "healthcare": 6500, "infrastructure": 9500 },
+    { "state": "Andhra Pradesh", "education": 11000, "healthcare": 8000, "infrastructure": 14000 }
+  ],
+  "revenueExpenditure": {
+    "years": ["2021-22", "2022-23", "2023-24", "2024-25", "2025-26"],
+    "revenue": [19.05, 22.84, 26.32, 30.01, 33.61],
+    "expenditure": [34.83, 39.45, 43.10, 47.66, 50.65],
+    "deficit": [15.78, 16.61, 16.78, 17.65, 17.04]
+  },
+  "predictions": {
+    "years": ["2025-26", "2026-27", "2027-28", "2028-29", "2029-30", "2030-31"],
+    "totalBudget": [50.65, 55.20, 60.10, 65.80, 72.00, 78.50],
+    "sectors": {
+      "Defence":       [6.21, 6.65, 7.10, 7.60, 8.15, 8.75],
+      "Infrastructure":[5.80, 6.50, 7.30, 8.20, 9.20, 10.30],
+      "Education":     [4.10, 4.55, 5.05, 5.60, 6.20, 6.85],
+      "Healthcare":    [3.75, 4.25, 4.80, 5.40, 6.10, 6.85],
+      "Renewable Energy": [1.95, 2.40, 2.95, 3.60, 4.35, 5.20],
+      "Digital India / IT": [2.20, 2.75, 3.40, 4.15, 5.00, 6.00]
+    }
+  },
+  "aiInsights": {
+    "highestGrowing": "Renewable Energy",
+    "fastestDeclining": "Tourism",
+    "budgetEfficiencyScore": 78,
+    "topPriorities": ["Digital Infrastructure", "Green Energy Transition", "Healthcare Expansion"],
+    "economicGrowthEstimate": 7.2,
+    "inflationAdjustedGrowth": 4.8
+  }
+}

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="India Union Budget Allocation Dashboard 2026 - Interactive analytics and visualization of India's Union Budget" />
+  <title>India Union Budget Dashboard 2026</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <!-- AOS Animations -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ===== LOADING SCREEN ===== -->
+<div id="loadingScreen">
+  <div class="loader-content">
+    <div class="ashoka-loader">
+      <div class="chakra-ring"></div>
+      <div class="chakra-inner">
+        <i class="fa-solid fa-landmark"></i>
+      </div>
+    </div>
+    <h2 class="loader-title">India Union Budget Dashboard</h2>
+    <p class="loader-sub">Loading fiscal data for 2025-26...</p>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+  </div>
+</div>
+
+<!-- ===== PARTICLES BACKGROUND ===== -->
+<div id="particles-bg"></div>
+
+<!-- ===== MAIN WRAPPER ===== -->
+<div class="dashboard-wrapper" id="dashboardWrapper">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="brand-logo">
+        <div class="logo-emblem"><i class="fa-solid fa-landmark"></i></div>
+        <div class="brand-text">
+          <span class="brand-name">BudgetViz</span>
+          <span class="brand-sub">India 2026</span>
+        </div>
+      </div>
+      <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">MAIN MENU</div>
+      <ul class="nav-list">
+        <li class="nav-item active" data-section="overview">
+          <a href="#overview"><i class="fa-solid fa-gauge-high"></i><span>Dashboard</span></a>
+        </li>
+        <li class="nav-item" data-section="analytics">
+          <a href="#analytics"><i class="fa-solid fa-chart-pie"></i><span>Budget Analytics</span></a>
+        </li>
+        <li class="nav-item" data-section="sectors">
+          <a href="#sectors"><i class="fa-solid fa-layer-group"></i><span>Sector Reports</span></a>
+        </li>
+        <li class="nav-item" data-section="states">
+          <a href="#states"><i class="fa-solid fa-map-location-dot"></i><span>State Analytics</span></a>
+        </li>
+        <li class="nav-item" data-section="predictive">
+          <a href="#predictive"><i class="fa-solid fa-brain"></i><span>Predictive Insights</span></a>
+        </li>
+        <li class="nav-item" data-section="downloads">
+          <a href="#downloads"><i class="fa-solid fa-download"></i><span>Downloads</span></a>
+        </li>
+        <li class="nav-item" data-section="settings">
+          <a href="#settings"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
+        </li>
+      </ul>
+
+      <div class="nav-section-label mt-3">FILTERS</div>
+      <div class="sidebar-filters">
+        <label class="filter-label"><i class="fa-solid fa-calendar"></i> Fiscal Year</label>
+        <select class="filter-select" id="yearFilter">
+          <option value="2025-26">2025-26</option>
+          <option value="2024-25">2024-25</option>
+          <option value="2023-24">2023-24</option>
+          <option value="2022-23">2022-23</option>
+          <option value="2021-22">2021-22</option>
+        </select>
+
+        <label class="filter-label mt-2"><i class="fa-solid fa-tags"></i> Category</label>
+        <div class="filter-chips">
+          <button class="chip active" data-cat="all">All</button>
+          <button class="chip" data-cat="social">Social</button>
+          <button class="chip" data-cat="economic">Economic</button>
+          <button class="chip" data-cat="infrastructure">Infra</button>
+          <button class="chip" data-cat="security">Security</button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="user-avatar"><i class="fa-solid fa-user-tie"></i></div>
+        <div class="user-info">
+          <span class="user-name">Admin</span>
+          <span class="user-role">Finance Ministry</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main-content" id="mainContent">
+
+    <!-- ===== TOPBAR ===== -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="page-title">
+          <div class="india-flag-strip">
+            <span class="flag-saffron"></span>
+            <span class="flag-white"></span>
+            <span class="flag-green"></span>
+          </div>
+          <div>
+            <h1>India Union Budget <span class="year-highlight">2025-26</span></h1>
+            <p>Government of India · Ministry of Finance</p>
+          </div>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="search-box">
+          <i class="fa-solid fa-search"></i>
+          <input type="text" id="globalSearch" placeholder="Search sectors, states..." aria-label="Search" />
+        </div>
+        <select class="year-selector" id="topYearSelector" aria-label="Select year">
+          <option value="2025-26">FY 2025-26</option>
+          <option value="2024-25">FY 2024-25</option>
+          <option value="2023-24">FY 2023-24</option>
+        </select>
+        <button class="icon-btn" id="notifBtn" aria-label="Notifications">
+          <i class="fa-solid fa-bell"></i>
+          <span class="badge-dot"></span>
+        </button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fa-solid fa-moon" id="themeIcon"></i>
+        </button>
+        <div class="user-profile">
+          <div class="avatar-circle"><i class="fa-solid fa-user-tie"></i></div>
+          <span class="d-none d-md-inline">Admin</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== SCROLLABLE CONTENT ===== -->
+    <div class="content-scroll">
+
+      <!-- ===== SECTION A: KPI CARDS ===== -->
+      <section id="overview" class="section-block">
+        <div class="section-header" data-aos="fade-right">
+          <h2><i class="fa-solid fa-gauge-high"></i> Key Performance Indicators</h2>
+          <span class="section-badge">FY 2025-26</span>
+        </div>
+
+        <div class="kpi-grid" id="kpiGrid">
+          <!-- KPI cards injected by JS -->
+        </div>
+      </section>
+
+      <!-- ===== SECTION B: CHARTS ROW 1 ===== -->
+      <section id="analytics" class="section-block">
+        <div class="section-header" data-aos="fade-right">
+          <h2><i class="fa-solid fa-chart-pie"></i> Budget Analytics</h2>
+          <div class="section-actions">
+            <button class="btn-glass" id="exportPDF"><i class="fa-solid fa-file-pdf"></i> Export PDF</button>
+            <button class="btn-glass" id="exportCSV"><i class="fa-solid fa-file-csv"></i> Export CSV</button>
+          </div>
+        </div>
+
+        <div class="charts-row">
+          <!-- Pie Chart -->
+          <div class="chart-card glass-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="chart-card-header">
+              <h3><i class="fa-solid fa-chart-pie"></i> Sector-wise Allocation</h3>
+              <div class="chart-actions">
+                <button class="chart-btn active" data-chart="pie" data-target="pieChart">Pie</button>
+                <button class="chart-btn" data-chart="donut" data-target="pieChart">Donut</button>
+              </div>
+            </div>
+            <div id="pieChart" class="chart-container"></div>
+          </div>
+
+          <!-- Bar Chart -->
+          <div class="chart-card glass-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="chart-card-header">
+              <h3><i class="fa-solid fa-chart-bar"></i> Sector Comparison</h3>
+              <div class="chart-actions">
+                <button class="chart-btn active" data-dir="vertical" data-target="barChart">Vertical</button>
+                <button class="chart-btn" data-dir="horizontal" data-target="barChart">Horizontal</button>
+              </div>
+            </div>
+            <div id="barChart" class="chart-container"></div>
+          </div>
+        </div>
+
+        <div class="charts-row mt-4">
+          <!-- Line Chart -->
+          <div class="chart-card glass-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="chart-card-header">
+              <h3><i class="fa-solid fa-chart-line"></i> 5-Year Budget Growth Trend</h3>
+            </div>
+            <div id="lineChart" class="chart-container"></div>
+          </div>
+
+          <!-- Donut Category Chart -->
+          <div class="chart-card glass-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="chart-card-header">
+              <h3><i class="fa-solid fa-circle-half-stroke"></i> Category Distribution</h3>
+            </div>
+            <div id="donutChart" class="chart-container"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECTION C: TREEMAP + HEATMAP ===== -->
+      <section id="sectors" class="section-block">
+        <div class="section-header" data-aos="fade-right">
+          <h2><i class="fa-solid fa-layer-group"></i> Sector Reports</h2>
+        </div>
+
+        <div class="charts-row">
+          <!-- Treemap -->
+          <div class="chart-card glass-card wide" data-aos="fade-up" data-aos-delay="100">
+            <div class="chart-card-header">
+              <h3><i class="fa-solid fa-table-cells-large"></i> Budget Treemap</h3>
+            </div>
+            <div id="treemapChart" class="chart-container tall"></div>
+          </div>
+        </div>
+
+        <div class="charts-row mt-4">
+          <!-- Heatmap -->
+          <div class="chart-card glass-card wide" data-aos="fade-up" data-aos-delay="100">
+            <div class="chart-card-header">
+              <h3><i class="fa-solid fa-fire"></i> State-wise Education Expenditure Heatmap</h3>
+            </div>
+            <div id="heatmapChart" class="chart-container"></div>
+          </div>
+        </div>
+
+        <!-- Sector Table -->
+        <div class="chart-card glass-card wide mt-4" data-aos="fade-up">
+          <div class="chart-card-header">
+            <h3><i class="fa-solid fa-table"></i> Detailed Sector Breakdown</h3>
+            <input type="text" id="sectorSearch" class="table-search" placeholder="Search sector..." aria-label="Search sectors" />
+          </div>
+          <div class="table-responsive">
+            <table class="budget-table" id="sectorTable">
+              <thead>
+                <tr>
+                  <th>Sector</th>
+                  <th>Category</th>
+                  <th>Allocation (₹ L.Cr)</th>
+                  <th>Prev Year</th>
+                  <th>Growth %</th>
+                  <th>Share %</th>
+                  <th>Trend</th>
+                </tr>
+              </thead>
+              <tbody id="sectorTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECTION D: STATE ANALYTICS ===== -->
+      <section id="states" class="section-block">
+        <div class="section-header" data-aos="fade-right">
+          <h2><i class="fa-solid fa-map-location-dot"></i> State Analytics</h2>
+        </div>
+
+        <div class="charts-row">
+          <!-- India Map Placeholder -->
+          <div class="chart-card glass-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="chart-card-header">
+              <h3><i class="fa-solid fa-map"></i> India Investment Map</h3>
+            </div>
+            <div id="indiaMap" class="chart-container india-map-container">
+              <div class="map-placeholder">
+                <div class="map-visual" id="mapVisual"></div>
+                <div class="map-legend" id="mapLegend"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Area Chart -->
+          <div class="chart-card glass-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="chart-card-header">
+              <h3><i class="fa-solid fa-chart-area"></i> Revenue vs Expenditure</h3>
+            </div>
+            <div id="areaChart" class="chart-container"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECTION E: AI INSIGHTS ===== -->
+      <section id="predictive" class="section-block">
+        <div class="section-header" data-aos="fade-right">
+          <h2><i class="fa-solid fa-brain"></i> AI Insights & Predictive Analytics</h2>
+          <span class="ai-badge"><i class="fa-solid fa-robot"></i> AI Powered</span>
+        </div>
+
+        <div class="ai-insights-grid" id="aiInsightsGrid" data-aos="fade-up">
+          <!-- Injected by JS -->
+        </div>
+
+        <!-- Prediction Chart -->
+        <div class="chart-card glass-card wide mt-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="chart-card-header">
+            <h3><i class="fa-solid fa-chart-line"></i> Budget Forecast 2026–2031</h3>
+            <span class="forecast-badge">AI Predicted</span>
+          </div>
+          <div id="forecastChart" class="chart-container tall"></div>
+        </div>
+
+        <!-- Sector Forecast -->
+        <div class="chart-card glass-card wide mt-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="chart-card-header">
+            <h3><i class="fa-solid fa-rocket"></i> Sector Growth Forecast</h3>
+          </div>
+          <div id="sectorForecastChart" class="chart-container"></div>
+        </div>
+      </section>
+
+      <!-- ===== SECTION F: BOTTOM ANALYTICS ===== -->
+      <section id="downloads" class="section-block">
+        <div class="section-header" data-aos="fade-right">
+          <h2><i class="fa-solid fa-lightbulb"></i> Key Observations & Recommendations</h2>
+        </div>
+
+        <div class="observations-grid" id="observationsGrid" data-aos="fade-up">
+          <!-- Injected by JS -->
+        </div>
+
+        <!-- Download Section -->
+        <div class="download-section glass-card mt-4" data-aos="fade-up" data-aos-delay="100">
+          <h3><i class="fa-solid fa-download"></i> Download Reports</h3>
+          <div class="download-buttons">
+            <button class="download-btn" id="dlPDF"><i class="fa-solid fa-file-pdf"></i> Full Report PDF</button>
+            <button class="download-btn" id="dlCSV"><i class="fa-solid fa-file-csv"></i> Budget Data CSV</button>
+            <button class="download-btn" id="dlJSON"><i class="fa-solid fa-file-code"></i> Raw JSON Data</button>
+            <button class="download-btn" id="dlPNG"><i class="fa-solid fa-image"></i> Dashboard PNG</button>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- end content-scroll -->
+  </main>
+</div><!-- end dashboard-wrapper -->
+
+<!-- ===== NOTIFICATION PANEL ===== -->
+<div class="notif-panel glass-card" id="notifPanel">
+  <div class="notif-header">
+    <h4><i class="fa-solid fa-bell"></i> Notifications</h4>
+    <button class="close-btn" id="closeNotif"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div class="notif-list">
+    <div class="notif-item unread"><i class="fa-solid fa-arrow-trend-up text-success"></i><div><strong>Renewable Energy</strong> allocation up 21.88%</div></div>
+    <div class="notif-item unread"><i class="fa-solid fa-microchip text-warning"></i><div><strong>Digital India</strong> fastest growing sector</div></div>
+    <div class="notif-item"><i class="fa-solid fa-file-invoice text-info"></i><div>Budget 2025-26 data updated</div></div>
+    <div class="notif-item"><i class="fa-solid fa-chart-line text-primary"></i><div>GDP growth estimate: 7.2%</div></div>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts@3.44.0/dist/apexcharts.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
